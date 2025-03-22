@@ -1,10 +1,16 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
 import App from './App.jsx'
 import SearchBooks from './pages/SearchBooks'
 import SavedBooks from './pages/SavedBooks'
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache()
+})
 
 const router = createBrowserRouter([
   {
